@@ -32,6 +32,7 @@ function EscrowVisual() {
           cy="150"
           r="2.5"
           fill="#d99b3f"
+          initial={{ cx: 100 }}
           animate={{ cx: [100, 300] }}
           transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", repeatType: "loop" }}
         />
