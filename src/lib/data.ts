@@ -95,7 +95,7 @@ export const skillCategories: SkillCategory[] = [
   {
     title: "Mobile",
     note: "Cross-platform product delivery",
-    skills: ["React Native", "Expo", "Swift (iOS)"],
+    skills: ["React Native", "Expo", "Swift (iOS)", "Flutter", "Dart"],
   },
   {
     title: "Trading / Quant",
