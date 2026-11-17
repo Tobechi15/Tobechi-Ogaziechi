@@ -5,7 +5,7 @@ import { Reveal } from "./ui/Reveal";
 
 const stats = [
   { value: `${projects.length}`, label: "Systems documented" },
-  { value: "4.00", label: "GPA / 5.00 · Dean's list" },
+  { value: "4.10", label: "GPA / 5.00 · Dean's list" },
   { value: "100+", label: "Members led at NACOS" },
   { value: `${skillCategories.length}`, label: "Tooling categories" },
 ];

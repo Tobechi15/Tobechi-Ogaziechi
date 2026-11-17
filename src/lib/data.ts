@@ -285,33 +285,33 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
-    role: "Full-Stack Developer & Instructor",
-    org: "New Horizons System Solutions",
-    period: "Aug 2020 — Dec 2020",
+    role: "Software Engineer ",
+    org: "WeBuildIdea",
+    period: "Aug 2025 — Present",
     location: "Port Harcourt, Rivers",
     points: [
-      "Brought a cohort of students from no full-stack background to shipping their own frontend and backend projects through direct mentoring.",
-    ],
-  },
-  {
-    role: "Software Development Engineering Intern",
-    org: "Techpadi Nigeria",
-    period: "May 2020 — Aug 2020",
-    location: "Abuja",
-    points: [
-      "Cut manual reporting work by building a Python pipeline that automatically retrieved cross-regional AWS performance data.",
-      "Gave the team visibility into real-time metrics by building a QuickSight dashboard on top of Glue, S3, Lambda, and Redshift.",
-      "Consolidated data from CloudWatch, a Bindles DataLake, and DynamoDB into unified Node.js data stacks.",
+      "deliver end-to-end web products and custom software for founders, covering frontend development, backend services, relational database integration, APIs, deployment, and product handoff. Translate product requirements into shipped customer-facing features, making technical decisions and handling implementation across the stack. Debug and resolve defects across the frontend, API, and database layers, and verify features against requirements before handoff.",
     ],
   },
   {
     role: "Research Assistant",
     org: "New Horizon System Solutions",
-    period: "Dec 2019 — May 2020",
+    period: "Dec 2019 — May 2025",
     location: "Atlanta, Georgia",
     points: [
       "Improved resource-flow efficiency in a disaster-response simulation by developing optimization algorithms on Python's NetworkX graph library.",
       "Made simulation results interpretable to non-technical stakeholders by building a PyGame visualization interface.",
+    ],
+  },
+  {
+    role: "Software Development Engineering Intern",
+    org: "Techpadi Nigeria",
+    period: "May 2019 — Aug 2019",
+    location: "Abuja",
+    points: [
+      "Cut manual reporting work by building a Python pipeline that automatically retrieved cross-regional AWS performance data.",
+      "Gave the team visibility into real-time metrics by building a QuickSight dashboard on top of Glue, S3, Lambda, and Redshift.",
+      "Consolidated data from CloudWatch, a Bindles DataLake, and DynamoDB into unified Node.js data stacks.",
     ],
   },
 ];
