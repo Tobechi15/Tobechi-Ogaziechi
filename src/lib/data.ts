@@ -357,9 +357,9 @@ export const additionalProjects = [
 export const education = {
   school: "Clifford University",
   location: "Ihie, Abia State, Nigeria",
-  degree: "B.S. & M.S. in Computer Science",
+  degree: "B.Sc. in Computer Science",
   concentration: "Concentration: Intelligence & Modeling/Simulations",
-  gpa: "GPA: 4.00 / 5.00 — Dean's List",
+  gpa: "GPA: 4.1 / 5.00 — Dean's List",
   coursework: [
     "Data Structures & Algorithms",
     "Machine Learning",
