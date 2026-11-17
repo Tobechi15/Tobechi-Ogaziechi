@@ -4,7 +4,7 @@
 export const profile = {
   name: "Tobechi Ogaziechi",
   fullName: "Tobechi A. Ogaziechi",
-  role: "Software Engineer & Product Builder",
+  role: "Software Engineer & Full-Stack Builder",
   roleShort: "Software Engineer — TypeScript, React, Node.js",
   location: "Nigeria",
   email: "tobechiogaziechi@email.com",
@@ -20,10 +20,11 @@ export const profile = {
 } as const;
 
 export const nav = [
+  { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
   { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
+  { label: "Work", href: "#work" },
+  { label: "Stack", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ] as const;
 

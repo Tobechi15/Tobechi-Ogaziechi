@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { fraunces, inter, jbMono } from "@/lib/fonts";
+import { display, inter, jbMono } from "@/lib/fonts";
 import { profile } from "@/lib/data";
 import "./globals.css";
 
@@ -46,16 +46,16 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: "#0a0a0b",
+  themeColor: "#111415",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${fraunces.variable} ${jbMono.variable} antialiased`}
+      className={`${inter.variable} ${display.variable} ${jbMono.variable} antialiased`}
     >
-      <body className="min-h-dvh bg-ink text-paper">{children}</body>
+      <body className="min-h-dvh bg-night text-white">{children}</body>
     </html>
   );
 }

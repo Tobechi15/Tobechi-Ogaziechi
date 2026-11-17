@@ -1,164 +1,154 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { projects } from "@/lib/data";
+import type { Project } from "@/lib/data";
+import { profile, projects } from "@/lib/data";
 import { Container } from "./ui/Container";
 import { SectionKicker, SectionTitle } from "./ui/SectionHeading";
 import { Reveal } from "./ui/Reveal";
-import { ProjectVisual } from "./ProjectVisuals";
+import { ArrowRight, ArrowUpRight, Cpu, Layers, Smartphone, Terminal, Verified } from "./ui/Icons";
+
+const meta: Record<
+  Project["visual"],
+  { category: string; footer: string; Icon: typeof Layers }
+> = {
+  escrow: {
+    category: "Escrow Infrastructure",
+    footer: "Dual-rail settlement",
+    Icon: Verified,
+  },
+  orb: {
+    category: "Algorithmic Trading",
+    footer: "Real-time signals",
+    Icon: Terminal,
+  },
+  quant: {
+    category: "Quant Research",
+    footer: "Model interpretability",
+    Icon: Cpu,
+  },
+  fintech: {
+    category: "Fintech Backend",
+    footer: "Webhook-driven",
+    Icon: Layers,
+  },
+  webuildidea: {
+    category: "Product Studio",
+    footer: "Idea to deployment",
+    Icon: Smartphone,
+  },
+};
 
 export function Projects() {
   return (
-    <section id="work" className="border-t border-border py-28 sm:py-36">
+    <section id="work" className="py-16 sm:py-24">
       <Container>
-        <SectionKicker index="02" label="Selected Work" />
-        <SectionTitle className="max-w-2xl">
-          Systems, not just code samples.
-        </SectionTitle>
-        <Reveal delay={0.12}>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-paper-dim">
-            Five products that show the same throughline — a real problem, an
-            architecture built to hold up under it, and a system that ships.
-          </p>
-        </Reveal>
-      </Container>
-
-      <div className="mt-24 flex flex-col">
-        {projects.map((project, i) => (
-          <ProjectCase key={project.slug} project={project} index={i} />
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function ProjectCase({
-  project,
-  index,
-}: {
-  project: (typeof projects)[number];
-  index: number;
-}) {
-  const reversed = index % 2 === 1;
-
-  return (
-    <div className="border-t border-border py-20 first:border-t-0 sm:py-28">
-      <Container>
-        <div
-          className={`grid items-center gap-12 lg:grid-cols-2 lg:gap-16 ${
-            reversed ? "lg:[&>*:first-child]:order-2" : ""
-          }`}
-        >
-          <Reveal y={30}>
-            <motion.div
-              whileHover={{ scale: 1.015 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="aspect-[4/3] w-full overflow-hidden rounded-xl border border-border-strong"
+        <Reveal>
+          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between md:gap-10">
+            <div>
+              <SectionKicker>Production code</SectionKicker>
+              <SectionTitle>Featured Repositories &amp; Systems</SectionTitle>
+            </div>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex w-fit items-center gap-2 font-display text-xs font-semibold text-flame transition-colors hover:text-white"
             >
-              <ProjectVisual variant={project.visual} />
-            </motion.div>
-          </Reveal>
-
-          <div>
-            <Reveal>
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-paper-faint">
-                <span className="text-accent-soft">
-                  {String(index + 1).padStart(2, "0")}
-                </span>{" "}
-                · {project.period}
-              </span>
-            </Reveal>
-
-            <Reveal delay={0.08}>
-              <h3 className="mt-4 font-serif text-3xl leading-tight text-paper text-balance sm:text-4xl">
-                {project.name}
-              </h3>
-            </Reveal>
-
-            <Reveal delay={0.14}>
-              <p className="mt-5 text-base leading-relaxed text-paper-dim">
-                {project.summary}
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.2}>
-              <div className="mt-6 space-y-4">
-                <div>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-paper-faint">
-                    Problem
-                  </p>
-                  <p className="mt-1.5 text-sm leading-relaxed text-paper-dim">
-                    {project.problem}
-                  </p>
-                </div>
-                <div>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-paper-faint">
-                    Approach
-                  </p>
-                  <p className="mt-1.5 text-sm leading-relaxed text-paper-dim">
-                    {project.approach}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.26}>
-              <ul className="mt-6 grid gap-2 sm:grid-cols-2">
-                {project.highlights.map((h) => (
-                  <li
-                    key={h}
-                    className="flex items-start gap-2 text-sm text-paper-dim"
-                  >
-                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
-                    {h}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-
-            <Reveal delay={0.32}>
-              <div className="mt-7 flex flex-wrap gap-2">
-                {project.stack.map((s) => (
-                  <span
-                    key={s}
-                    className="rounded-full border border-border-strong px-3 py-1 font-mono text-[11px] text-paper-dim"
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.38}>
-              <div className="mt-8 flex flex-wrap gap-5">
-                {project.links.map((link) =>
-                  link.href ? (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm text-paper transition-colors hover:text-accent"
-                    >
-                      {link.label}
-                      <span aria-hidden>↗</span>
-                    </a>
-                  ) : (
-                    <span
-                      key={link.label}
-                      className="inline-flex items-center gap-1.5 text-sm text-paper-faint"
-                      title="Link to be added"
-                    >
-                      {link.label}
-                      <span className="font-mono text-[10px]">(soon)</span>
-                    </span>
-                  )
-                )}
-              </div>
-            </Reveal>
+              Explore the repositories on GitHub
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+            </a>
           </div>
+        </Reveal>
+
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+          {projects.map((project, index) => {
+            const { category, footer, Icon } = meta[project.visual];
+            return (
+              <Reveal key={project.slug} delay={(index % 3) * 0.06} className="h-full">
+                <article className="group flex h-full flex-col rounded-3xl border border-white/[0.07] bg-card/80 p-5 shadow-[0_20px_50px_-40px_rgba(0,0,0,1)] transition-all duration-300 hover:border-white/15 hover:bg-card sm:p-6">
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.08em] text-flame">
+                      <Icon className="h-3.5 w-3.5" />
+                      {category}
+                    </span>
+                    <span className="shrink-0 rounded-full bg-card-high px-2.5 py-1 font-mono text-[9px] text-white/45">
+                      {project.stack[0]}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-3 font-display text-lg font-bold leading-snug tracking-tight text-white transition-colors group-hover:text-flame sm:text-xl">
+                    {project.name}
+                  </h3>
+                  <p className="mt-2 text-[13px] leading-relaxed text-ash">
+                    {project.summary}
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {project.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] text-white/55"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <details className="group/case mt-auto pt-5">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-3 border-t border-white/[0.07] pt-4">
+                      <span className="inline-flex items-center gap-2 text-[11px] text-white/45 transition-colors group-hover/case:text-white/70">
+                        <span>{footer}</span>
+                        <span className="font-display text-[10px] font-semibold uppercase tracking-[0.1em] text-flame">
+                          Case study
+                        </span>
+                      </span>
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-card-high text-white transition-all duration-300 group-hover:bg-flame group-open/case:rotate-45">
+                        <ArrowUpRight className="h-4 w-4" />
+                      </span>
+                    </summary>
+
+                    <div className="space-y-3 pt-4">
+                      <div>
+                        <p className="font-display text-[10px] font-bold uppercase tracking-[0.16em] text-white/35">
+                          Problem
+                        </p>
+                        <p className="mt-1 text-[12px] leading-relaxed text-ash">
+                          {project.problem}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-display text-[10px] font-bold uppercase tracking-[0.16em] text-white/35">
+                          Approach
+                        </p>
+                        <p className="mt-1 text-[12px] leading-relaxed text-ash">
+                          {project.approach}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-display text-[10px] font-bold uppercase tracking-[0.16em] text-white/35">
+                          Highlights
+                        </p>
+                        <ul className="mt-1.5 space-y-1.5">
+                          {project.highlights.map((highlight) => (
+                            <li
+                              key={highlight}
+                              className="flex items-start gap-2 text-[12px] leading-relaxed text-ash"
+                            >
+                              <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-flame" />
+                              {highlight}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <p className="font-mono text-[9px] uppercase tracking-wider text-white/30">
+                        {project.period}
+                      </p>
+                    </div>
+                  </details>
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </Container>
-    </div>
+    </section>
   );
 }

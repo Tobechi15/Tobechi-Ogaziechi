@@ -15,15 +15,15 @@ type ButtonProps = BaseProps & {
 };
 
 const base =
-  "group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium tracking-wide transition-all duration-300 ease-out-quart focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
+  "group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-display text-sm font-bold tracking-[0.01em] transition-all duration-300 ease-out-expo active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame focus-visible:ring-offset-2 focus-visible:ring-offset-night";
 
 const variants = {
   primary:
-    "bg-paper text-ink hover:bg-accent hover:-translate-y-0.5 hover:shadow-[0_8px_30px_-8px_rgba(201,154,74,0.45)]",
+    "bg-flame text-white shadow-[0_10px_28px_rgba(255,87,34,0.35)] hover:brightness-110",
   secondary:
-    "border border-border-strong text-paper hover:border-accent hover:text-accent hover:-translate-y-0.5",
+    "border border-slate-200 bg-white text-ink shadow-sm hover:bg-slate-50",
   ghost:
-    "text-paper-dim hover:text-paper",
+    "border border-hairline-strong bg-card/60 text-white hover:border-flame/50 hover:text-flame",
 };
 
 export function Button({

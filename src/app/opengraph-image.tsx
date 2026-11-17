@@ -16,8 +16,8 @@ export default function Image() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#0a0a0b",
-          color: "#ededec",
+          background: "#111415",
+          color: "#ffffff",
           fontFamily: "sans-serif",
         }}
       >
@@ -29,7 +29,7 @@ export default function Image() {
             fontSize: 22,
             letterSpacing: 4,
             textTransform: "uppercase",
-            color: "#bcbcb4",
+            color: "#9ca3af",
           }}
         >
           <div
@@ -37,13 +37,13 @@ export default function Image() {
               width: 10,
               height: 10,
               borderRadius: 999,
-              background: "#4f9c74",
+              background: "#ff5722",
               display: "flex",
             }}
           />
-          Software Engineer &amp; Product Builder
+          {profile.role}
         </div>
-        <div style={{ display: "flex", fontSize: 96, marginTop: 28, fontWeight: 600 }}>
+        <div style={{ display: "flex", fontSize: 96, marginTop: 28, fontWeight: 800 }}>
           {profile.name}
         </div>
         <div
@@ -52,7 +52,7 @@ export default function Image() {
             fontSize: 32,
             marginTop: 24,
             maxWidth: 900,
-            color: "#d99b3f",
+            color: "#ff5722",
           }}
         >
           Fintech infrastructure · Trading systems · Full-stack products
